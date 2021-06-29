@@ -58,6 +58,12 @@ export class TaskControllerBase {
       data: {
         ...data,
 
+        location: data.location
+          ? {
+              connect: data.location,
+            }
+          : undefined,
+
         project: data.project
           ? {
               connect: data.project,
@@ -74,6 +80,12 @@ export class TaskControllerBase {
         createdAt: true,
         estimation: true,
         id: true,
+
+        location: {
+          select: {
+            id: true,
+          },
+        },
 
         project: {
           select: {
@@ -127,6 +139,12 @@ export class TaskControllerBase {
         estimation: true,
         id: true,
 
+        location: {
+          select: {
+            id: true,
+          },
+        },
+
         project: {
           select: {
             id: true,
@@ -173,6 +191,12 @@ export class TaskControllerBase {
         createdAt: true,
         estimation: true,
         id: true,
+
+        location: {
+          select: {
+            id: true,
+          },
+        },
 
         project: {
           select: {
@@ -239,6 +263,12 @@ export class TaskControllerBase {
         data: {
           ...data,
 
+          location: data.location
+            ? {
+                connect: data.location,
+              }
+            : undefined,
+
           project: data.project
             ? {
                 connect: data.project,
@@ -255,6 +285,12 @@ export class TaskControllerBase {
           createdAt: true,
           estimation: true,
           id: true,
+
+          location: {
+            select: {
+              id: true,
+            },
+          },
 
           project: {
             select: {
@@ -303,6 +339,12 @@ export class TaskControllerBase {
           createdAt: true,
           estimation: true,
           id: true,
+
+          location: {
+            select: {
+              id: true,
+            },
+          },
 
           project: {
             select: {

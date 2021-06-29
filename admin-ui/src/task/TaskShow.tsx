@@ -7,6 +7,7 @@ import {
   TextField,
   ReferenceField,
 } from "react-admin";
+import { LOCATION_TITLE_FIELD } from "../location/LocationTitle";
 import { PROJECT_TITLE_FIELD } from "../project/ProjectTitle";
 import { USER_TITLE_FIELD } from "../user/UserTitle";
 
@@ -17,6 +18,13 @@ export const TaskShow = (props: ShowProps): React.ReactElement => {
         <DateField source="createdAt" label="Created At" />
         <TextField label="Estimation" source="estimation" />
         <TextField label="ID" source="id" />
+        <ReferenceField
+          label="Location"
+          source="location.id"
+          reference="Location"
+        >
+          <TextField source={LOCATION_TITLE_FIELD} />
+        </ReferenceField>
         <ReferenceField label="Project" source="project.id" reference="Project">
           <TextField source={PROJECT_TITLE_FIELD} />
         </ReferenceField>

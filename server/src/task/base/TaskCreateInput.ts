@@ -1,8 +1,9 @@
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsString, IsOptional, ValidateNested } from "class-validator";
-import { ProjectWhereUniqueInput } from "../../project/base/ProjectWhereUniqueInput";
+import { LocationWhereUniqueInput } from "../../location/base/LocationWhereUniqueInput";
 import { Type } from "class-transformer";
+import { ProjectWhereUniqueInput } from "../../project/base/ProjectWhereUniqueInput";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
 @InputType()
 class TaskCreateInput {
@@ -16,6 +17,18 @@ class TaskCreateInput {
     nullable: true,
   })
   estimation?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => LocationWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => LocationWhereUniqueInput)
+  @IsOptional()
+  @Field(() => LocationWhereUniqueInput, {
+    nullable: true,
+  })
+  location?: LocationWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

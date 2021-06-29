@@ -18,6 +18,10 @@ import { TaskList } from "./task/TaskList";
 import { TaskCreate } from "./task/TaskCreate";
 import { TaskEdit } from "./task/TaskEdit";
 import { TaskShow } from "./task/TaskShow";
+import { LocationList } from "./location/LocationList";
+import { LocationCreate } from "./location/LocationCreate";
+import { LocationEdit } from "./location/LocationEdit";
+import { LocationShow } from "./location/LocationShow";
 
 const App = (): React.ReactElement => {
   const [dataProvider, setDataProvider] = useState<DataProvider | null>(null);
@@ -63,6 +67,13 @@ const App = (): React.ReactElement => {
           edit={TaskEdit}
           create={TaskCreate}
           show={TaskShow}
+        />
+        <Resource
+          name="Location"
+          list={LocationList}
+          edit={LocationEdit}
+          create={LocationCreate}
+          show={LocationShow}
         />
       </Admin>
     </div>
