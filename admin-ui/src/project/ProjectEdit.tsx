@@ -17,6 +17,7 @@ export const ProjectEdit = (props: EditProps): React.ReactElement => {
     <Edit {...props}>
       <SimpleForm>
         <TextInput label="Description" multiline source="description" />
+        <DateTimeInput label="Due Date" source="dueDate" />
         <TextInput label="Name" source="name" />
         <DateTimeInput label="Start date" source="startDate" />
         <ReferenceInput source="user.id" reference="User" label="User">

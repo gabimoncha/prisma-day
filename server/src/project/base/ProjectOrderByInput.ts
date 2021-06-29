@@ -32,6 +32,15 @@ class ProjectOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  dueDate?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["Asc", "Desc"],
+  })
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   id?: SortOrder;
 
   @ApiProperty({
