@@ -41,6 +41,15 @@ class TaskOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  locationId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["Asc", "Desc"],
+  })
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   projectId?: SortOrder;
 
   @ApiProperty({

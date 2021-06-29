@@ -455,6 +455,12 @@ export class UserControllerBase {
         estimation: true,
         id: true,
 
+        location: {
+          select: {
+            id: true,
+          },
+        },
+
         project: {
           select: {
             id: true,

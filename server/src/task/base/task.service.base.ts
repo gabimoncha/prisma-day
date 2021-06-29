@@ -1,5 +1,5 @@
 import { PrismaService } from "nestjs-prisma";
-import { Prisma, Task, Project, User } from "@prisma/client";
+import { Prisma, Task, Location, Project, User } from "@prisma/client";
 
 export class TaskServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -34,6 +34,14 @@ export class TaskServiceBase {
     args: Prisma.SelectSubset<T, Prisma.TaskDeleteArgs>
   ): Promise<Task> {
     return this.prisma.task.delete(args);
+  }
+
+  async getLocation(parentId: string): Promise<Location | null> {
+    return this.prisma.task
+      .findUnique({
+        where: { id: parentId },
+      })
+      .location();
   }
 
   async getProject(parentId: string): Promise<Project | null> {
